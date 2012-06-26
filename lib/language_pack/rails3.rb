@@ -48,7 +48,7 @@ private
 
           puts "Running: rake assets:precompile"
           require 'benchmark'
-          time = Benchmark.realtime { pipe("env PATH=$PATH:bin bundle exec rake assets:precompile --trace 2>&1") }
+          time = Benchmark.realtime { pipe("env PATH=$PATH:bin bundle exec rake assets:precompile:primary RAILS_ENV=production RAILS_GROUPS=assets --trace 2>&1") }
 
           if $?.success?
             log "assets_precompile", :status => "success"
